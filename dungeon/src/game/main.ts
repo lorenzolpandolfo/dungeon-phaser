@@ -9,12 +9,14 @@ const config: Types.Core.GameConfig = {
   width: 1024,
   height: 768,
   parent: "game-container",
-  backgroundColor: "#028af8",
+  backgroundColor: "#242424",
   scale: {
     mode: Scale.FIT,
     autoCenter: Scale.CENTER_BOTH,
   },
-  scene: [MainMenu, GameScene],
+  pixelArt: true,
+  // scene: [MainMenu, GameScene],
+  scene: [GameScene],
 };
 
 const StartGame = (parent: string) => {
