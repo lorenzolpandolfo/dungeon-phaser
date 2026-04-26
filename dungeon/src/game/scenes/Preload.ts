@@ -15,7 +15,12 @@ export class Preload extends Phaser.Scene {
 
     this.load.spritesheet("small_mobs_tiles", "assets/tileset.png", {
       frameWidth: 16,
-      frameHeight: 28,
+      frameHeight: 32,
+    });
+
+    this.load.spritesheet("item_tiles", "assets/tileset.png", {
+      frameWidth: 16,
+      frameHeight: 16,
     });
   }
 

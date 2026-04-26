@@ -1,7 +1,7 @@
 import * as Phaser from "phaser";
 
-const wizard_idle_start_tile = 200;
-const wizard_idle_end_tile = 204;
+const wizard_idle_start_tile = 168;
+const wizard_idle_end_tile = 172;
 
 export default class Player extends Phaser.Physics.Arcade.Sprite {
   // speed: number = 105;
