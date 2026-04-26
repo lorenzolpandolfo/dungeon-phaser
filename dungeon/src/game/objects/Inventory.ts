@@ -11,5 +11,7 @@ export default class Inventory {
     } else {
       this.data.push(item);
     }
+    console.log(item.title, "foi coletado");
+    console.log(this.data);
   }
 }

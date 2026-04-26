@@ -1,16 +1,26 @@
 import * as Phaser from "phaser";
-
-const texture = "item_tiles";
+import { Game } from "../scenes/Game";
+import Player from "./entities/player/Player";
+import itens from "../data/itens.json";
 
 export class Item extends Phaser.GameObjects.Sprite {
   id: string;
   title: string;
   quantity: number;
+  stackable: boolean = true;
 
-  constructor(scene: Phaser.Scene, x: number, y: number, frame: number) {
-    super(scene, x, y, texture, frame);
+  constructor(scene: Game, x: number, y: number, id: string) {
+    const item_data = itens[id];
+
+    super(scene, x, y, item_data.tilemap, item_data.tileId);
+
+    this.id = id;
+    this.title = item_data.title;
+    this.quantity = 1;
 
     scene.add.existing(this);
+    scene.physics.add.existing(this);
+    scene.physics.add.overlap(scene.player, this, this.collect, null, this);
 
     scene.tweens.add({
       targets: this,
@@ -20,7 +30,10 @@ export class Item extends Phaser.GameObjects.Sprite {
       yoyo: true,
       repeat: -1,
     });
+  }
 
-    scene.physics.add.existing(this);
+  collect(player: Player, item: Item) {
+    item.destroy();
+    player.inventory.add(item);
   }
 }
