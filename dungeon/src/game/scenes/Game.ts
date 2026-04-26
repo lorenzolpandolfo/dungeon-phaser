@@ -12,6 +12,8 @@ export class Game extends Phaser.Scene {
   }
 
   create() {
+    this.scene.launch("HUD");
+
     const dungeonService = new DungeonService(this);
     dungeonService.generate();
 

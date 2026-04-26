@@ -2,6 +2,7 @@ import { Menu as MainMenu } from "./scenes/Menu";
 import { Game as GameScene } from "./scenes/Game";
 import { AUTO, Game, Scale, Types } from "phaser";
 import { Preload } from "./scenes/Preload";
+import { HUD as HUDScene } from "./scenes/Hud";
 
 // Find out more information about the Game Config at:
 // https://docs.phaser.io/api-documentation/typedef/types-core#gameconfig
@@ -19,7 +20,7 @@ const config: Types.Core.GameConfig = {
   physics: {
     default: "arcade",
   },
-  scene: [Preload, MainMenu, GameScene],
+  scene: [Preload, MainMenu, GameScene, HUDScene],
 };
 
 const StartGame = (parent: string) => {

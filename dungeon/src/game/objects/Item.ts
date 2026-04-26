@@ -20,7 +20,13 @@ export class Item extends Phaser.GameObjects.Sprite {
 
     scene.add.existing(this);
     scene.physics.add.existing(this);
-    scene.physics.add.overlap(scene.player, this, this.collect, null, this);
+    scene.physics.add.overlap(
+      scene.player,
+      this,
+      (p, i) => this.collect(p, i),
+      null,
+      this,
+    );
 
     scene.tweens.add({
       targets: this,
@@ -33,7 +39,8 @@ export class Item extends Phaser.GameObjects.Sprite {
   }
 
   collect(player: Player, item: Item) {
-    item.destroy();
     player.inventory.add(item);
+    this.scene.events.emit("updateScore", 100);
+    item.destroy();
   }
 }
