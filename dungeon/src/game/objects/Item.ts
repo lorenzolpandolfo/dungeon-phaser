@@ -41,6 +41,6 @@ export class Item extends Phaser.GameObjects.Sprite {
   collect(player: Player, item: Item) {
     player.inventory.add(item);
     this.scene.events.emit("updateScore", 100);
-    item.destroy();
+    this.scene.events.emit("collectItem", this);
   }
 }

@@ -12,8 +12,6 @@ export class Game extends Phaser.Scene {
   }
 
   create() {
-    this.scene.launch("HUD");
-
     const dungeonService = new DungeonService(this);
     dungeonService.generate();
 
@@ -21,6 +19,11 @@ export class Game extends Phaser.Scene {
 
     this.cameras.main.startFollow(this.player, true, 0.1, 0.1);
     this.cameras.main.setZoom(2);
+
+    const data = {
+      player: this.player,
+    };
+    this.scene.launch("HUD", data);
 
     ItemFactory.createBomb(this, 165, 75);
     ItemFactory.createBomb(this, 185, 75);

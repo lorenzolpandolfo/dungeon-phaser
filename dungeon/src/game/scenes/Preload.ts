@@ -22,6 +22,8 @@ export class Preload extends Phaser.Scene {
       frameWidth: 16,
       frameHeight: 16,
     });
+
+    this.load.image("item_slot", "assets/hud/item_slot.png");
   }
 
   create() {
