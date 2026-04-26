@@ -14,7 +14,7 @@ export class Game extends Phaser.Scene {
     const dungeonService = new DungeonService(this);
     dungeonService.generate();
 
-    this.player = new Player(this, 500, 350);
+    this.player = new Player(this, 120, 70);
 
     this.cameras.main.startFollow(this.player, true, 0.1, 0.1);
     this.cameras.main.setZoom(2);

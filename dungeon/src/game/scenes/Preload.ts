@@ -6,6 +6,8 @@ export class Preload extends Phaser.Scene {
   }
 
   preload() {
+    this.load.image("background", "assets/menubg.jpg");
+
     this.load.spritesheet("floor_tiles", "assets/tilemaps/atlas_floor.png", {
       frameWidth: 16,
       frameHeight: 16,

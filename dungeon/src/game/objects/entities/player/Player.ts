@@ -4,7 +4,8 @@ const wizard_idle_start_tile = 200;
 const wizard_idle_end_tile = 204;
 
 export default class Player extends Phaser.Physics.Arcade.Sprite {
-  speed: number = 105;
+  // speed: number = 105;
+  speed: number = 305;
   keys: object;
 
   constructor(scene: Phaser.Scene, x: number, y: number) {

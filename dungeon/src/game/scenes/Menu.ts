@@ -7,11 +7,6 @@ export class Menu extends Scene {
     super("Menu");
   }
 
-  preload() {
-    this.load.setPath("assets");
-    this.load.image("background", "menubg.jpg");
-  }
-
   create() {
     this.add.tileSprite(0, 0, 1024, 768, "background").setOrigin(0);
 
