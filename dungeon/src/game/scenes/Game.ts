@@ -30,8 +30,11 @@ export class Game extends Phaser.Scene {
     ItemFactory.createBomb(this, 205, 75);
     ItemFactory.createBomb(this, 225, 75);
     ItemFactory.createHpPotion(this, 145, 95);
+    ItemFactory.createHpPotion(this, 165, 95);
     ItemFactory.createManaPotion(this, 145, 115);
+    ItemFactory.createManaPotion(this, 165, 115);
     ItemFactory.createDmgPotion(this, 145, 135);
+    ItemFactory.createDmgPotion(this, 165, 135);
   }
 
   update() {

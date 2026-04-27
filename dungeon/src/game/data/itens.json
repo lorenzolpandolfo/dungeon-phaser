@@ -2,26 +2,31 @@
   "hp_potion": {
     "tilemap": "item_potions_tilemap",
     "tileId": 690,
-    "title": "Poção de Vida"
+    "title": "Poção de Vida",
+    "stackable": true
   },
   "mana_potion": {
     "tilemap": "item_potions_tilemap",
     "tileId": 691,
-    "title": "Poção de Mana"
+    "title": "Poção de Mana",
+    "stackable": true
   },
   "speed_potion": {
     "tilemap": "item_potions_tilemap",
     "tileId": 692,
-    "title": "Poção de Velocidade"
+    "title": "Poção de Velocidade",
+    "stackable": false
   },
   "dmg_potion": {
     "tilemap": "item_potions_tilemap",
     "tileId": 693,
-    "title": "Poção de Força"
+    "title": "Poção de Força",
+    "stackable": false
   },
   "bomb": {
     "tilemap": "item_potions_tilemap",
     "tileId": 658,
-    "title": "Bomba"
+    "title": "Bomba",
+    "stackable": true
   }
 }

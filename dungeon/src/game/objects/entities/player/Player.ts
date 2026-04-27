@@ -1,5 +1,5 @@
 import * as Phaser from "phaser";
-import Inventory from "../../Inventory";
+import InventoryService from "../../../services/InventoryService";
 
 const wizard_idle_start_tile = 168;
 const wizard_idle_end_tile = 172;
@@ -9,7 +9,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
   speed: number = 305;
   keys: object;
   health: number = 5;
-  inventory: Inventory = new Inventory();
+  inventoryService: InventoryService = new InventoryService();
 
   constructor(scene: Phaser.Scene, x: number, y: number) {
     super(scene, x, y, "player_1");

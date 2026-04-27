@@ -2,7 +2,7 @@ import * as Phaser from "phaser";
 import { HUD } from "../../scenes/Hud";
 import { Item } from "../Item";
 
-export default class ItemSelector extends Phaser.GameObjects.Image {
+export default class ItemSlot extends Phaser.GameObjects.Image {
   slot: number;
   itemId: string | null = null;
   quantity: number = 0;
@@ -40,32 +40,34 @@ export default class ItemSelector extends Phaser.GameObjects.Image {
       this.hideTooltip();
     });
   }
+
   get isEmpty() {
     return this.itemId === null;
   }
 
-  setItem(item: Item) {
-    if (this.itemId === item.id && item.stackable) {
-      this.quantity += item.quantity;
-      this.updateUI();
-      return true;
+  updateFromData(item: Item | null) {
+    if (!item) {
+      this.itemId = null;
+      this.quantity = 0;
+      if (this.icon) this.icon.destroy();
+      if (this.text) this.text.setVisible(false);
+      return;
     }
 
-    if (this.isEmpty) {
-      this.itemId = item.id;
-      this.itemData = { title: item.title };
-      this.quantity = item.quantity;
+    this.itemId = item.id;
+    this.quantity = item.quantity;
+    this.itemData = { title: item.title };
 
+    if (this.icon) {
+      this.icon.setTexture(item.texture, item.frame);
+    } else {
       this.icon = this.scene.add
-        .image(this.x + 23, this.y + 23, item.texture.key, item.frame.name)
+        .image(this.x + 23, this.y + 23, item.texture, item.frame)
         .setOrigin(0.5)
         .setScale(2);
-
-      this.updateUI();
-      return true;
     }
 
-    return false;
+    this.updateUI();
   }
 
   private updateUI() {

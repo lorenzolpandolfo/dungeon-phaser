@@ -1,6 +1,5 @@
 import * as Phaser from "phaser";
 import { Game } from "../scenes/Game";
-import Player from "./entities/player/Player";
 import itens from "../data/itens.json";
 
 export class Item extends Phaser.GameObjects.Sprite {
@@ -16,6 +15,7 @@ export class Item extends Phaser.GameObjects.Sprite {
 
     this.id = id;
     this.title = item_data.title;
+    this.stackable = item_data.stackable;
     this.quantity = 1;
 
     scene.add.existing(this);
@@ -38,9 +38,7 @@ export class Item extends Phaser.GameObjects.Sprite {
     });
   }
 
-  collect(player: Player, item: Item) {
-    player.inventory.add(item);
-    this.scene.events.emit("updateScore", 100);
+  collect() {
     this.scene.events.emit("collectItem", this);
   }
 }
