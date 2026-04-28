@@ -1,30 +1,54 @@
 {
   "hp_potion": {
-    "tilemap": "item_potions_tilemap",
+    "tilemap": "tileset_16x16",
     "tileId": 690,
     "title": "Poção de Vida",
     "stackable": true
   },
   "mana_potion": {
-    "tilemap": "item_potions_tilemap",
+    "tilemap": "tileset_16x16",
     "tileId": 691,
     "title": "Poção de Mana",
     "stackable": true
   },
   "speed_potion": {
-    "tilemap": "item_potions_tilemap",
+    "tilemap": "tileset_16x16",
     "tileId": 692,
     "title": "Poção de Velocidade",
     "stackable": false
   },
   "dmg_potion": {
-    "tilemap": "item_potions_tilemap",
+    "tilemap": "tileset_16x16",
     "tileId": 693,
     "title": "Poção de Força",
     "stackable": false
   },
+  "mini_hp_potion": {
+    "tilemap": "tileset_16x16",
+    "tileId": 722,
+    "title": "Mini Poção de Vida",
+    "stackable": true
+  },
+  "mini_mana_potion": {
+    "tilemap": "tileset_16x16",
+    "tileId": 723,
+    "title": "Mini Poção de Mana",
+    "stackable": true
+  },
+  "mini_speed_potion": {
+    "tilemap": "tileset_16x16",
+    "tileId": 724,
+    "title": "Mini Poção de Velocidade",
+    "stackable": false
+  },
+  "mini_dmg_potion": {
+    "tilemap": "tileset_16x16",
+    "tileId": 725,
+    "title": "Mini Poção de Força",
+    "stackable": true
+  },
   "bomb": {
-    "tilemap": "item_potions_tilemap",
+    "tilemap": "tileset_16x16",
     "tileId": 658,
     "title": "Bomba",
     "stackable": true

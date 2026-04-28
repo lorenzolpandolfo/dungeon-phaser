@@ -13,7 +13,7 @@ export default class InventoryHudService {
 
   public init() {
     for (let i = 0; i < 6; i++) {
-      this.slots.push(new ItemSlot(this.hudScene, 16 + 52 * i, 32, i));
+      this.slots.push(new ItemSlot(this.hudScene, 16 + 52 * i, 16, i));
     }
 
     this.refresh();

@@ -1,21 +1,24 @@
 import * as Phaser from "phaser";
 import InventoryService from "../../../services/InventoryService";
+import Entity from "../Entity";
 
 const wizard_idle_start_tile = 168;
 const wizard_idle_end_tile = 172;
 
-export default class Player extends Phaser.Physics.Arcade.Sprite {
-  // speed: number = 105;
-  speed: number = 305;
+const STATUS = {
+  speed: 300,
+  initHealth: 8,
+  curHealth: 8,
+  damage: 1,
+};
+
+export default class Player extends Entity {
   keys: object;
-  health: number = 5;
+
   inventoryService: InventoryService = new InventoryService();
 
   constructor(scene: Phaser.Scene, x: number, y: number) {
-    super(scene, x, y, "player_1");
-
-    scene.add.existing(this);
-    scene.physics.add.existing(this);
+    super(scene, x, y, STATUS);
 
     this.body?.setSize(20, 10).setOffset(6, 22);
 
@@ -32,7 +35,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
     this.scene.anims.create({
       key: "player-idle",
-      frames: this.scene.anims.generateFrameNumbers("small_mobs_tiles", {
+      frames: this.scene.anims.generateFrameNumbers("tileset_16x32", {
         start: wizard_idle_start_tile,
         end: wizard_idle_end_tile,
       }),
@@ -47,7 +50,6 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     const { left, right, up, down, leftArrow, rightArrow, upArrow, downArrow } =
       this.keys;
 
-    // 1. Define a direção (X)
     if (left.isDown || leftArrow.isDown) {
       this.setVelocityX(-1);
       this.setFlip(true, false);
@@ -56,7 +58,6 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
       this.setFlip(false, false);
     }
 
-    // 2. Define a direção (Y)
     if (up.isDown || upArrow.isDown) {
       this.setVelocityY(-1);
     } else if (down.isDown || downArrow.isDown) {

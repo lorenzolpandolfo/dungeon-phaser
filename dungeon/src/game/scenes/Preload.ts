@@ -13,14 +13,19 @@ export class Preload extends Phaser.Scene {
       frameHeight: 16,
     });
 
-    this.load.spritesheet("small_mobs_tiles", "assets/tileset.png", {
+    this.load.spritesheet("tileset_16x16", "assets/tileset.png", {
+      frameWidth: 16,
+      frameHeight: 16,
+    });
+
+    this.load.spritesheet("tileset_16x32", "assets/tileset.png", {
       frameWidth: 16,
       frameHeight: 32,
     });
 
-    this.load.spritesheet("item_potions_tilemap", "assets/tileset.png", {
+    this.load.spritesheet("tileset_16x24", "assets/tileset.png", {
       frameWidth: 16,
-      frameHeight: 16,
+      frameHeight: 24,
     });
 
     this.load.image("item_slot", "assets/hud/item_slot.png");

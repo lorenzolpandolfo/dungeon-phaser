@@ -2,6 +2,7 @@ import * as Phaser from "phaser";
 import Player from "../objects/entities/player/Player";
 import InventoryHudService from "../services/hud/InventoryHudService";
 import { Game } from "./Game";
+import HealthHudService from "../services/hud/HealthHudService";
 
 export class HUD extends Phaser.Scene {
   score: number = 0;
@@ -26,5 +27,8 @@ export class HUD extends Phaser.Scene {
       this.player.inventoryService,
     );
     inventoryHud.init();
+
+    const healthHud = new HealthHudService(this, this.player.healthService);
+    healthHud.init();
   }
 }
